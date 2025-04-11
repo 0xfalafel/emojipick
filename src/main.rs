@@ -1,5 +1,6 @@
 use gtk::prelude::*;
 use relm4::prelude::*;
+use relm4::gtk::gdk::Display;
 
 struct App;
 
@@ -20,7 +21,13 @@ impl SimpleComponent for App {
                 // set_height_request: 150,
                 set_label: "Click me",
                 connect_clicked => {
-                    println!("Hello world!");
+                    // Get the clipboard from Display
+                    if let Some(display) = Display::default() {
+                        let clipboard = display.clipboard();
+
+                        clipboard.set_text("Hi mom!");
+                    }
+                    println!("Text copied to clipboard!");
                 },
             },
         }
