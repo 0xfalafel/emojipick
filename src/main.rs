@@ -19,13 +19,12 @@ impl SimpleComponent for App {
                 set_margin_all: 15,
                 // set_width_request: 150,
                 // set_height_request: 150,
-                set_label: "Click me",
+                set_label: "😁",
                 connect_clicked => {
                     // Get the clipboard from Display
                     if let Some(display) = Display::default() {
                         let clipboard = display.clipboard();
-
-                        clipboard.set_text("Hi mom!");
+                        clipboard.set_text("😁");
                     }
                     println!("Text copied to clipboard!");
                 },
